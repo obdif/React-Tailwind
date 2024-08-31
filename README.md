@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # React and Tailwind CSS Practice
 
 ## Overview
@@ -26,7 +26,7 @@ To run the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/obdif/React-Tailwind.git
 2. Enter the repository clone in the cmd:
      cd your-repo-name
 3. npm install
