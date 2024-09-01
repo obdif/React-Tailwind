@@ -1,10 +1,20 @@
 import { Carousel } from "flowbite-react";
-import React from 'react';
+import React, { useEffect } from 'react';
 import image1 from '../assets/image1.png';
+import Earn from '../assets/earn.svg'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Home = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1200, // Set the animation duration to 1200ms
+        });
+    }, []);
+
     return (
-        <div className='bg-neutralSilver'>
+        <div className='bg-neutralSilver' id="home" data-aos="fade-up" data-aos-duration="1500">
             <div className='px-4 lg:px-14 max-w-screen-2xl mx-auto min-h-screen h-screen'>
                 <Carousel className='w-full mx-auto'>
 

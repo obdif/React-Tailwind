@@ -1,14 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { FaArrowRightLong } from 'react-icons/fa6';
-import { Label, TextInput } from "flowbite-react";
+import { TextInput } from "flowbite-react";
 import { HiMail } from "react-icons/hi";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 
 
 
 const Newsletter = () => {
 
+    useEffect(() => {
+        AOS.init({
+            duration: 1200, // Set the animation duration to 1200ms
+        });
+    }, []);
+
+
     return (
-        <div className='md:px-14 px-4 py-16 max-w-screen-2xl mx-auto'>
+        <div className='md:px-14 px-4 py-16 max-w-screen-2xl mx-auto' id='faq' data-aos="fade-down">
             <div className="text-center my-8">
                 <h2 className='text-4xl text-neutralDGrey font-semibold mb-2'>Pellentesque suscipit fringilla libero eu.</h2>
 

@@ -21,7 +21,7 @@ const MyFooter = () => {
       <div className="w-full bg-black p-8">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>
-            <a href="" className="text-2xl font-semibold flex items-center space-x-5 mb-5">
+            <a href="" className="text-2xl font-semibold flex items-center space-x-5 mb-5" >
               <img src={logo} alt="" className="w-10 inline-block items-center" />
               <span className="text-brandPrimary">Ulearn</span>
             </a>
@@ -37,7 +37,7 @@ const MyFooter = () => {
             <div>
               <FooterTitle title="Follow us" />
               <FooterLinkGroup col>
-                <FooterLink href="#">Github</FooterLink>
+                <FooterLink href="https://github.com/obdif/">Github</FooterLink>
                 <FooterLink href="#">Discord</FooterLink>
               </FooterLinkGroup>
             </div>
@@ -57,7 +57,7 @@ const MyFooter = () => {
             <FooterIcon href="#" icon={BsFacebook} />
             <FooterIcon href="#" icon={BsInstagram} />
             <FooterIcon href="#" icon={BsTwitter} />
-            <FooterIcon href="#" icon={BsGithub} />
+            <FooterIcon href="https://github.com/obdif/" icon={BsGithub} />
             <FooterIcon href="#" icon={BsDribbble} />
           </div>
         </div>
