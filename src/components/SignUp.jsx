@@ -21,7 +21,6 @@ const SignUp = () => {
 
     return (
         <div>
-            <Navbar />
             <form className="flex md:w-1/3 m-auto flex-col gap-4 mt-20 " >
                 <div>
                     <div className="mb-2 block">
@@ -45,12 +44,12 @@ const SignUp = () => {
                     <Checkbox id="agree" />
                     <Label htmlFor="agree" className="flex">
                         I agree with the&nbsp;
-                        <a href="#" className="text-cyan-600 hover:underline dark:text-cyan-500">
+                        <a href="#" className="text-red-600 hover:underline dark:text-cyan-500">
                             terms and conditions
                         </a>
                     </Label>
                 </div>
-                <Button type="submit">Register new account</Button>
+                <Button type="submit" className='bg-brandPrimary transition-all duration-300 hover:bg-neutralDGrey'>Register new account</Button>
             </form>
         </div>
 
