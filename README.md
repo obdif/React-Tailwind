@@ -33,7 +33,8 @@ To run the project locally:
 4. npm start
 
 ## Deployment
-Access the Live website here: 
+You can view the live demo of the website here: [Live Demo](https://react-tailwind-roan.vercel.app/)
+
 =======
 # React + Vite
 
