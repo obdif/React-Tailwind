@@ -9,6 +9,7 @@ import MyFooter from "./components/MyFooter";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import AuthNavbar from "./components/AuthNavbar";
 
 
 
@@ -18,7 +19,8 @@ function App() {
     <Router>
     <Navbar />
       <Routes>
-        <Route 
+      {/* <Route path="/" element={<Navbar><Home /></Navbar>} /> */}
+       <Route 
           path="/" 
           element={
             <>
@@ -33,8 +35,8 @@ function App() {
           } 
         />
 
-        <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/login" element={<> <AuthNavbar/> <Login /> </>} />
+        <Route path="/signup" element={ <> <AuthNavbar/> <SignUp/>  </>} />
       </Routes>
     </Router>
   );

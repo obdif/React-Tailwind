@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import logo from "../assets/react.svg";
 import { Link as ScrollLink } from 'react-scroll';
 import { FaXmark, FaBars } from "react-icons/fa6";
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const navigate = useNavigate();
+  const [userEmail, setUserEmail] = useState(null);
 
   // Toggle Menu
   const toggleMenu = () => {
@@ -29,8 +31,24 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const user = localStorage.getItem('user');
+    console.log("Retrieved user from localStorage:", user);
+    if (user) {
+      const parsedUser = JSON.parse(user);
+      setUserEmail(parsedUser.email);
+      console.log("User email:", parsedUser.email);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUserEmail(null);
+    // navigate('/login'); // Redirect to login page after logging out
+  };
+
   const navItems = [
-    { link: "Home", path: "/"  },
+    { link: "Home", path: "/" },
     { link: "Service", path: "service" },
     { link: "About", path: "about" },
     { link: "Product", path: "product" },
@@ -49,7 +67,7 @@ const Navbar = () => {
           </RouterLink>
 
           {/* Nav items for Large screen */}
-          <ul className="md:flex space-x-12 hidden ">
+          <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
               path === "/" ? (
                 <RouterLink
@@ -76,14 +94,23 @@ const Navbar = () => {
 
           {/* Buttons for large devices */}
           <div className="space-x-22 hidden gap-8 lg:flex items-center">
-            <RouterLink to="/login" className="hidden lg:flex items-center font-semibold text-2xl text-brandPrimary hover:text-medium">
-              Login
-            </RouterLink>
-            <RouterLink to="/signup">
-              <button className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300 rounded hover:bg-medium">
-                Sign Up
-              </button>
-            </RouterLink>
+            {userEmail ? (
+              <div className="flex items-center">
+                <span className="text-black">{userEmail}</span>
+                <button
+                  onClick={handleLogout}
+                  className="bg-red-500 text-white font-bold ml-8 py-2 px-4 transition-all duration-300 rounded hover:text-medium"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <RouterLink to="/login">
+                <button className="bg-brandPrimary text-white font-bold ml-8 py-2 px-4 transition-all duration-300 rounded hover:text-medium">
+                  Login
+                </button>
+              </RouterLink>
+            )}
           </div>
 
           {/* Menu Btn for Mobile Devices */}
@@ -126,12 +153,9 @@ const Navbar = () => {
           ))}
 
           <div className="space-x-22 gap-10 flex lg:flex items-center">
-            <RouterLink to="/login" className="lg:flex items-center text-2xl text-white hover:text-light">
-              Login
-            </RouterLink>
-            <RouterLink to="/signup">
+            <RouterLink to="/login">
               <button className="bg-white text-brandPrimary font-bold ml-8 py-2 px-4 transition-all duration-300 rounded hover:text-medium">
-                Sign Up
+                Login
               </button>
             </RouterLink>
           </div>
